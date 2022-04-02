@@ -1,0 +1,48 @@
+version : "3.8" 
+services :
+    webserver : 
+        build :
+            context : ./docker 
+            dockerfile : Dockerfile 
+        container_name : php_slim
+        ports : 
+            - 9383:80
+        networks :
+            backend-net :
+                ipv4_address : 70.21.21.11
+        links :
+            - memcached
+            - database
+        depends_on :
+            - memcached
+            - database
+        volumes :
+            - .:/var/www/html
+            - "./docker/php.ini:/usr/local/etc/php/conf.d/php.ini"
+        command : sh /var/www/html/docker/init.sh
+    database :
+        container_name : "database_slim"
+        image : mariadb
+        ports :
+            - "9406:3306"
+        networks :
+            backend-net :
+                ipv4_address : 70.21.21.12
+        environment :
+            - MYSQL_ROOT_PASSWORD=7*DBslim369
+            - MYSQL_DATABASE=db_slim
+    memcached :
+        container_name : memcached_slim
+        image : memcached:alpine
+        ports :
+            - "9313:11211"
+        networks :
+            backend-net :
+                ipv4_address : 70.21.21.13
+networks :
+    backend-net :
+        driver : bridge
+        ipam :
+            driver : default
+            config :
+                - subnet : 70.21.21.0/26

@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+
+# IDE
+#-------------------------
+/nbproject/
+.idea/*
+.vscode/*
+.project
+.buildpath
+
+# Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+/vendor/
+/logs/*
+!/logs/README.md
+composer.phar
+composer.lock

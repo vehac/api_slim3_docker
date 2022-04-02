@@ -1,0 +1,12 @@
+{
+  "name": "API en Slim 3",
+  "version": "1.0.0",
+  "description": "Documentación del API",
+  "title": "Api Slim",
+  "generator": {
+    "name": "apidoc",
+    "time": "2022-03-27T06:00:45.124Z",
+    "url": "http://apidocjs.com",
+    "version": " 0.51.0"
+  }
+}
