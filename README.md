@@ -91,6 +91,7 @@ SOURCE /var/www/html/api_slim_docker/docker/my_db.sql
 - Para clonar y construir apidocjs con docker, ejecutar los siguientes comandos:
 ```bash
 git clone https://github.com/apidoc/apidoc.git
+cd apidoc
 docker build -t apidoc/apidoc .
 ```
 - Para usar apidocjs y poder documentar el api usar el siguiente comando:
